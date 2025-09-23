@@ -12,6 +12,10 @@
         <div class="mb-3">
             <label for="token" class="form-label">Enter your token:</label>
             <input type="text" class="form-control" name="token" required>
+
+            {% if error %}
+            <p style="color:red;">{{ error }}</p>
+            {% endif %}
         </div>
 
         {% for q in quiz.questions %}

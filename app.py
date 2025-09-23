@@ -18,6 +18,10 @@ import yaml
 with open("config.yaml", "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
 
+with open("auth_users.yaml", "r") as f:
+    auth_data = yaml.safe_load(f)
+
+
 QUIZ_FOLDER = config.get("QUIZ_FOLDER", "quizzes")
 ANSWERS_FOLDER = config.get("ANSWERS_FOLDER", "submissions")
 HOST = config.get("HOST", "0.0.0.0")
@@ -144,9 +148,26 @@ def student_home():
 def quiz(code):
     quiz_data = load_quiz(code)
     questions = quiz_data["questions"]
+    allowed_tokens = list(auth_data['users'].keys())
 
     if request.method == "POST":
         token = request.form.get("token")
+        
+
+        # capture answers
+        answers = [request.form.get(f"q{i}") for i in range(len(questions))]
+
+        # ---- Add this check ----
+        if token not in allowed_tokens:
+            # just render the same page with an error message
+            return render_template(
+                "quiz.html",
+                quiz=quiz_data,
+                token=token,
+                error=f"Token '{token}' not recognized. Please contact the trainer.",
+                allowed_tokens=allowed_tokens
+            )
+
         answers = []
         score = 0
         for q in questions:
