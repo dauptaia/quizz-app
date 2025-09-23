@@ -1,0 +1,11 @@
+# General settings
+QUIZ_FOLDER: "quizzes"
+ANSWERS_FOLDER: "submissions"
+
+# App settings
+HOST: "0.0.0.0"
+PORT: 5000
+#DEBUG: true   # set to false in production
+
+# Optional: trainer settings
+SHOW_LAST_N_MINUTES: 30

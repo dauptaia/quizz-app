@@ -1,0 +1,32 @@
+quiz:
+  title: "The Basics of Unix Command Line"
+  code: "UNIX101"
+  last_update: 2025-09-23
+
+questions:
+  - id: 1
+    text: "Which command lists the files in the current directory?"
+    options:
+      - "ls"
+      - "cd"
+      - "pwd"
+      - "cat"
+    correct: 0
+
+  - id: 2
+    text: "Which command shows the current working directory?"
+    options:
+      - "echo"
+      - "pwd"
+      - "whoami"
+      - "man"
+    correct: 1
+
+  - id: 3
+    text: "Which command is used to change the current directory?"
+    options:
+      - "cd"
+      - "mv"
+      - "cp"
+      - "rm"
+    correct: 0
