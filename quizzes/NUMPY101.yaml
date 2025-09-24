@@ -1,0 +1,105 @@
+quiz:
+  title: "NumPy 101: Basics of Numerical Python"
+  code: "NUMPY101"
+  last_update: 2025-09-24
+
+questions:
+  - id: 0
+    concept: "Creating Arrays"
+    text: "Which command creates a NumPy array from a Python list [1, 2, 3]?"
+    options:
+      - "new int[3]{1,2,3}"      # C++-style
+      - "DATA A /1,2,3/"         # Fortran-style
+      - "np.array([1, 2, 3])"
+      - "Array(1, 2, 3)"         # JavaScript-style
+    correct: 2
+
+  - id: 1
+    concept: "Array Shapes"
+    text: "Which attribute shows the dimensions of a NumPy array?"
+    options:
+      - "DIMENSION(array)"     # Fortran
+      - "array.length"         # JavaScript
+      - "sizeof(array)"        # C++
+      - "array.shape"
+    correct: 3
+
+  - id: 2
+    concept: "Indexing and Slicing"
+    text: "How do you access the first element of a NumPy array 'a'?"
+    options:
+      - "a.at(0)"              # C++
+      - "a(1)"                 # Fortran 1-based indexing
+      - "a[0]"
+      - "a.get(0)"             # JavaScript
+    correct: 2
+
+  - id: 3
+    concept: "Data Types"
+    text: "Which property returns the data type of a NumPy array?"
+    options:
+      - "array.dtype"
+      - "KIND(array)"          # Fortran
+      - "typeid(array)"        # C++
+      - "typeof(array)"        # JavaScript
+    correct: 0
+
+  - id: 4
+    concept: "Broadcasting"
+    text: "What is broadcasting in NumPy?"
+    options:
+      - "Streaming data to multiple clients"                  # JS/web
+      - "Console output of variable values"                   # C++
+      - "Automatically expanding arrays of different shapes for element-wise operations"
+      - "Sending data between processes across the network"   # Fortran MPI confusion
+    correct: 2
+
+  - id: 5
+    concept: "Vectorized Operations"
+    text: "How do you add two arrays element-wise in NumPy?"
+    options:
+      - "a.concat(b)"           # JavaScript
+      - "a + b"
+      - "add(a, b)"             # C++ style function
+      - "CALL ADD(A,B)"         # Fortran
+    correct: 1
+
+  - id: 6
+    concept: "Aggregation Functions"
+    text: "Which function computes the average of array elements in NumPy?"
+    options:
+      - "np.mean(array)"
+      - "average(array)"        # C++
+      - "array.avg()"           # JavaScript
+      - "MEAN(array)"           # Fortran intrinsic
+    correct: 0
+
+  - id: 7
+    concept: "Matrix Operations"
+    text: "Which function computes the dot product of two arrays in NumPy?"
+    options:
+      - "a . b"                 # Fortran-style dot
+      - "np.dot(a, b)"
+      - "a.multiply(b)"         # JavaScript-like
+      - "a * b"                 # Element-wise, wrong for dot product
+    correct: 1
+
+  - id: 8
+    concept: "Slicing"
+    text: "How do you select the first three elements of a NumPy array 'a'?"
+    options:
+      - "a[0:3]"
+      - "a(1:3)"                # Fortran
+      - "a.slice(0,3)"          # JavaScript
+      - "a[0..2]"               # C++/pseudo
+    correct: 0
+
+  - id: 9
+    concept: "Random Module"
+    text: "Which command generates a 2x2 array of random numbers in NumPy?"
+    options:
+      - "random(2,2)"           # Fortran
+      - "Math.random(2,2)"      # JavaScript
+      - "np.random.rand(2,2)"
+      - "rand(2,2)"             # C++
+    correct: 2

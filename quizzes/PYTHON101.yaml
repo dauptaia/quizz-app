@@ -1,0 +1,105 @@
+quiz:
+  title: "The Basics of Python Programming"
+  code: "PYTHON101"
+  last_update: 2025-09-24
+
+questions:
+  - id: 0
+    concept: "Variables and Data Types"
+    text: "Which of the following is the correct way to assign a value to a variable in Python?"
+    options:
+      - "int x = 10"        # C++
+      - "x = 10"            # ✅ Python
+      - "var x = 10"        # JavaScript
+      - "integer :: x = 10" # Fortran
+    correct: 1
+
+  - id: 1
+    concept: "Printing Output"
+    text: "What is the correct way to print 'Hello' in Python?"
+    options:
+      - "print('Hello')"    # ✅ Python
+      - "cout << 'Hello';"  # C++
+      - "WRITE(*,*) 'Hello'"# Fortran
+      - "console.log('Hello')" # JavaScript
+    correct: 0
+
+  - id: 2
+    concept: "Control Flow"
+    text: "Which keyword is used in Python to check multiple conditions after an if statement?"
+    options:
+      - "elsif"     # Fortran / Perl style
+      - "else if"   # C++ style
+      - "elif"      # ✅ Python
+      - "elseif"    # PHP/others
+    correct: 2
+
+  - id: 3
+    concept: "Loops"
+    text: "What is the correct syntax for a for loop that iterates over the list [1, 2, 3]?"
+    options:
+      - "for (x in [1, 2, 3])"    # JavaScript
+      - "for x in [1, 2, 3]:"     # ✅ Python
+      - "foreach x in [1, 2, 3]:" # PHP/C#
+      - "do i = 1, 3"             # Fortran
+    correct: 1
+
+  - id: 4
+    concept: "Functions"
+    text: "How do you define a function called greet in Python?"
+    options:
+      - "def greet():"      # ✅ Python
+      - "function greet()"  # JavaScript
+      - "void greet()"      # C++
+      - "subroutine greet()"# Fortran
+    correct: 0
+
+  - id: 5
+    concept: "Lists and Indexing"
+    text: "What is the index of the first element in a Python list?"
+    options:
+      - "0"                 # ✅ Python
+      - "1"                 # Fortran, MATLAB
+      - "list[1]"           # C++ confusion
+      - "array(1)"          # Fortran
+    correct: 0
+
+  - id: 6
+    concept: "Dictionaries"
+    text: "How do you access the value associated with the key 'name' in a dictionary d?"
+    options:
+      - "d['name']"         # ✅ Python
+      - "d.name"            # JavaScript object
+      - "d->name"           # C++
+      - "d(name)"           # Fortran function style
+    correct: 0
+
+  - id: 7
+    concept: "Strings"
+    text: "What will be the output of 'Hello'.lower() in Python?"
+    options:
+      - "hello"             # ✅ Python
+      - "HELLO"             # Opposite case
+      - "tolower('Hello')"  # C++
+      - "LCASE('Hello')"    # VB/Fortran
+    correct: 0
+
+  - id: 8
+    concept: "Modules and Imports"
+    text: "Which statement correctly imports the math module in Python?"
+    options:
+      - "require math"      # Node.js
+      - "using namespace math;" # C++
+      - "import math"       # ✅ Python
+      - "INCLUDE 'math'"    # Fortran
+    correct: 2
+
+  - id: 9
+    concept: "Errors and Exceptions"
+    text: "Which Python keyword is used to handle exceptions?"
+    options:
+      - "catch"             # C++/Java
+      - "try"               # ✅ Python
+      - "rescue"            # Ruby
+      - "onerror"           # Fortran-like
+    correct: 1

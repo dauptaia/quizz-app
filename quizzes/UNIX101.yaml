@@ -1,96 +1,105 @@
 quiz:
-  title: "The Basics of Unix Command Line"
+  title: "The Basics of Unix Command Line (Reviewed & Shuffled)"
   code: "UNIX101"
-  last_update: 2025-09-23
+  last_update: 2025-09-24
 
 questions:
-  - id: 1
+  - id: 0
     text: "Which command lists the files in the current directory?"
+    concept: "File listing with ls"
     options:
-      - "ls"
       - "cd"
-      - "dir"
+      - "ls"
       - "list"
-    correct: 0
+      - "dir"
+    correct: 1
+
+  - id: 1
+    text: "Which command is used to change the current directory?"
+    concept: "Directory navigation with cd"
+    options:
+      - "mv"
+      - "cd"
+      - "rm"
+      - "cp"
+    correct: 1
 
   - id: 2
-    text: "Which command is used to change the current directory?"
+    text: "What is a wildcard in the Unix shell?"
+    concept: "Globbing and pattern expansion"
     options:
-      - "cd"
-      - "mv"
-      - "cp"
-      - "rm"
-    correct: 0
-  
-  - id: 3
-    text: "What is a wildcard?"
-    options:
-      - "a special character replacing parts of a shell path"
-      - "a special character replacing parts of a shell command"
       - "a combination of options in a shell command"
+      - "a special character pattern that can match filenames or parts of paths"
       - "an overriding option in a shell command to force a behavior"
-    correct: 0
+      - "a special character replacing parts of a shell command"
+    correct: 1
+
+  - id: 3
+    text: "What is shell autocompletion?"
+    concept: "Command-line productivity with tab-completion"
+    options:
+      - "a suggestion based only on frequently used commands"
+      - "an intelligent completion while typing a command or filename"
+      - "an automatic execution of the most likely command"
+      - "a suggestion based only on previously typed commands"
+    correct: 1
 
   - id: 4
-    text: "What is autocompletion?"
+    text: "How do you access the manual page for a shell command?"
+    concept: "Documentation with man pages"
     options:
-      - "an intelligent completion at the processing of a shel command"
-      - "an intelligent suggestion from usual commands"
-      - "a intelligent suggestion from the past commands"
-      - "an intelligent completion while typing a shell command"
-    correct: 3
-  
-  - id: 5
-    text: "How do you get help about a shell command ?"
-    options:
-      - "help (your command)"
-      - "doc (your command)"
-      - "man (your command)"
-      - "(your command) -h"
-      - "(your command) --help"
+      - "<command> --help"
+      - "doc <command>"
+      - "man <command>"
+      - "<command> -h"
     correct: 2
-  
-  - id: 6
-    text: "How do you read only the end of a text file?"
+
+  - id: 5
+    text: "Which command shows only the last lines of a text file?"
+    concept: "Inspecting the end of a file with tail"
     options:
       - "cat file.txt"
       - "tail file.txt"
+      - "less file.txt"
       - "head file.txt"
-      - "read file.txt"
-    correct: 1
-  
-  - id: 7
-    text: "How can you create an empty file file.txt, or update it's last access date if already existing?"
-    options:
-      - "touch file.txt"
-      - "echo file.txt"
-      - "open file.txt"
-      - "update file.txt"
-    correct: 0
-  
-  - id: 8
-    text: "How do you copy a file.txt to file2.txt?"
-    options:
-      - "copy file.txt file2.txt"
-      - "cp file.txt file2.txt"
-      - "file.txt cp file2.txt"
-      - "dupl file.txt file2.txt"
     correct: 1
 
-  - id: 9
-    text: "How do you delete file.txt?"
+  - id: 6
+    text: "Which command creates an empty file file.txt, or updates its timestamp if it exists?"
+    concept: "File creation and timestamp update with touch"
+    options:
+      - "echo file.txt"
+      - "touch file.txt"
+      - "update file.txt"
+      - "open file.txt"
+    correct: 1
+
+  - id: 7
+    text: "Which command copies file.txt to file2.txt?"
+    concept: "File duplication with cp"
+    options:
+      - "duplicate file.txt file2.txt"
+      - "mv file.txt file2.txt"
+      - "cp file.txt file2.txt"
+      - "copy file.txt file2.txt"
+    correct: 2
+
+  - id: 8
+    text: "Which command deletes the file file.txt?"
+    concept: "File removal with rm"
     options:
       - "del file.txt"
-      - "archive file.txt"
+      - "erase file.txt"
       - "kill file.txt"
       - "rm file.txt"
     correct: 3
-  
-  - id: 10
-    text: "A shell script is..."
+
+  - id: 9
+    text: "What is a shell script?"
+    concept: "Definition and purpose of shell scripts"
     options:
-      - "a mix of shell and script-specific commands in a file"
-      - "only shell commands in a file"
-      - "only script-specific commands in a file"
-      - "any scripting language stored in a file"
-    correct: 1
+      - "a text file containing Unix shell commands, executed in sequence"
+      - "a file containing only script-specific commands, not shell commands"
+      - "a binary file interpreted by the shell"
+      - "any program written in any scripting language"
+    correct: 0
