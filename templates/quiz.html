@@ -27,7 +27,7 @@
             {% set j = loop.index0 %}
             <label>
                 <input type="radio" name="q{{ i }}" value="{{ j }}" {% if answers and answers[i] is not none and
-                    answers[i]|int==j %}checked{% endif %}>
+                    answers[i]|int==j %}checked{% endif %} {% if loop.first %}required{% endif %}>
                 {{ option }}
             </label><br>
             {% endfor %}
