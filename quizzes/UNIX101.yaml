@@ -9,20 +9,11 @@ questions:
     options:
       - "ls"
       - "cd"
-      - "pwd"
-      - "cat"
+      - "dir"
+      - "list"
     correct: 0
 
   - id: 2
-    text: "Which command shows the current working directory?"
-    options:
-      - "echo"
-      - "pwd"
-      - "whoami"
-      - "man"
-    correct: 1
-
-  - id: 3
     text: "Which command is used to change the current directory?"
     options:
       - "cd"
@@ -30,3 +21,76 @@ questions:
       - "cp"
       - "rm"
     correct: 0
+  
+  - id: 3
+    text: "What is a wildcard?"
+    options:
+      - "a special character replacing parts of a shell path"
+      - "a special character replacing parts of a shell command"
+      - "a combination of options in a shell command"
+      - "an overriding option in a shell command to force a behavior"
+    correct: 0
+
+  - id: 4
+    text: "What is autocompletion?"
+    options:
+      - "an intelligent completion at the processing of a shel command"
+      - "an intelligent suggestion from usual commands"
+      - "a intelligent suggestion from the past commands"
+      - "an intelligent completion while typing a shell command"
+    correct: 3
+  
+  - id: 5
+    text: "How do you get help about a shell command ?"
+    options:
+      - "help (your command)"
+      - "doc (your command)"
+      - "man (your command)"
+      - "(your command) -h"
+      - "(your command) --help"
+    correct: 2
+  
+  - id: 6
+    text: "How do you read only the end of a text file?"
+    options:
+      - "cat file.txt"
+      - "tail file.txt"
+      - "head file.txt"
+      - "read file.txt"
+    correct: 1
+  
+  - id: 7
+    text: "How can you create an empty file file.txt, or update it's last access date if already existing?"
+    options:
+      - "touch file.txt"
+      - "echo file.txt"
+      - "open file.txt"
+      - "update file.txt"
+    correct: 0
+  
+  - id: 8
+    text: "How do you copy a file.txt to file2.txt?"
+    options:
+      - "copy file.txt file2.txt"
+      - "cp file.txt file2.txt"
+      - "file.txt cp file2.txt"
+      - "dupl file.txt file2.txt"
+    correct: 1
+
+  - id: 9
+    text: "How do you delete file.txt?"
+    options:
+      - "del file.txt"
+      - "archive file.txt"
+      - "kill file.txt"
+      - "rm file.txt"
+    correct: 3
+  
+  - id: 10
+    text: "A shell script is..."
+    options:
+      - "a mix of shell and script-specific commands in a file"
+      - "only shell commands in a file"
+      - "only script-specific commands in a file"
+      - "any scripting language stored in a file"
+    correct: 1
