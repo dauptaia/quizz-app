@@ -153,10 +153,12 @@ def quiz(code):
     if request.method == "POST":
         token = request.form.get("token")
         
-
+        answers = []
+        confidence = []
         # capture answers
-        answers = [request.form.get(f"q{i}") for i in range(len(questions))]
-
+        for i in range(len(quiz_data['questions'])):
+            answers.append(request.form.get(f"q{i}"))
+            confidence.append(request.form.get(f"c{i}"))
         # ---- Add this check ----
         if token not in allowed_tokens:
             # just render the same page with an error message
@@ -164,6 +166,8 @@ def quiz(code):
                 "quiz.html",
                 quiz=quiz_data,
                 token=token,
+                answers=answers,
+                confidence=confidence,
                 error=f"Token '{token}' not recognized. Please contact the trainer.",
                 allowed_tokens=allowed_tokens
             )
@@ -171,13 +175,15 @@ def quiz(code):
         answers = []
         score = 0
         for q in questions:
-            qid = str(q["id"])
-            ans = request.form.get(f"q{qid}")
-            conf = request.form.get(f"conf{qid}")
+            qid = int(q["id"])
+            #print(qid,q["id"] )
+            ans = request.form.get(f"q{qid-1}")
+            conf = request.form.get(f"c{qid-1}")
             answers.append((qid, ans, conf))
             if ans is not None and int(ans) == q["correct"]:
                 score += 1
-
+        print(answers)
+            
         save_submission_supabase(code, token, answers, score, len(questions))
         return render_template(
             "quiz_result.html",
