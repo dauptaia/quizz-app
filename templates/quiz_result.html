@@ -13,10 +13,22 @@
     <h2>Review</h2>
     <ul class="list-group">
         {% for q, ans in qa_pairs %}
+        {% set student_ans = ans[1]|int if ans[1] else "None" %}
+        {% set correct_ans = q.correct %}
         <li class="list-group-item">
-            <b>{{ q.id }}. {{ q.text }}</b><br>
-            Your answer: {{ q.options[ans[1]|int] if ans[1] else "None" }}<br>
-            Correct answer: {{ q.options[q.correct] }}<br>
+            <b>{{ q.id }}. {{ q.text }}</b>
+            {% if student_ans is not none %}
+            {% if student_ans == correct_ans %}
+            ✅
+            {% else %}
+            ❌
+            {% endif %}
+            {% else %}
+            ❌
+            {% endif %}
+            <br>
+            Your answer: {{ q.options[student_ans] }}<br>
+            Correct answer: {{ q.options[correct_ans] }}<br>
             Confidence: {{ ans[2] }}%
         </li>
         {% endfor %}

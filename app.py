@@ -83,24 +83,39 @@ def save_submission_supabase(quiz_code, token, answers, score, total):
     except Exception as e:
         print("Upload failed:", e)
 
-    # try:
-    #     bucket = "quiz-submissions"
-    #     path = f"submissions/{filename}"
+def load_submissions_supabase(quiz_code, last_minutes=None):
+    filename = f"{quiz_code}_answers.csv"
+    submissions = []
 
-    #     result = supabase.storage.from_(bucket).upload(
-    #         path=path,
-    #         file=output.getvalue().encode("utf-8"),
-    #         file_options={"content-type": "text/csv", "upsert": "true"}
-    #     )
-    #     print("Upload result:", result)
+    try:
+        # Download CSV from Supabase
+        res = supabase.storage.from_(bucket).download(filename)
+        csv_content = res.decode("utf-8")
+    except Exception:
+        # If file doesn’t exist → no submissions
+        return submissions
 
-    # except httpx.HTTPStatusError as e:
-    #     print("HTTP error:", e.response.status_code, e.response.text)
-    #     raise
-    # except Exception as e:
-    #     print("Upload failed:", repr(e))
-    #     raise
-
+    reader = csv.DictReader(io.StringIO(csv_content))
+    for row in reader:
+        ts = datetime.fromisoformat(row["timestamp"])
+        if last_minutes:
+            if ts < datetime.now() - timedelta(minutes=last_minutes):
+                continue
+        # Convert answers back from string
+        try:
+            answers = eval(row["answers"])
+        except Exception:
+            answers = []
+        submissions.append(
+            {
+                "timestamp": ts,
+                "token": row["token"],
+                "answers": answers,
+                "score": int(row["score"]),
+                "total": int(row["total"]),
+            }
+        )
+    return submissions
 
 # def save_submission(quiz_code, token, answers, score, total):
 #     filename = os.path.join(ANSWERS_FOLDER, f"{quiz_code}_answers.csv")
@@ -112,30 +127,30 @@ def save_submission_supabase(quiz_code, token, answers, score, total):
 #         writer.writerow([datetime.now().isoformat(), token, answers, score, total])
 
 
-def load_submissions(quiz_code, last_minutes=None):
-    filename = os.path.join(ANSWERS_FOLDER, f"{quiz_code}_answers.csv")
-    submissions = []
-    if not os.path.exists(filename):
-        return submissions
-    with open(filename, "r", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            ts = datetime.fromisoformat(row["timestamp"])
-            if last_minutes:
-                if ts < datetime.now() - timedelta(minutes=last_minutes):
-                    continue
-            # Convert answers from string to list of tuples
-            answers = eval(row["answers"])
-            submissions.append(
-                {
-                    "timestamp": ts,
-                    "token": row["token"],
-                    "answers": answers,
-                    "score": int(row["score"]),
-                    "total": int(row["total"]),
-                }
-            )
-    return submissions
+# def load_submissions(quiz_code, last_minutes=None):
+#     filename = os.path.join(ANSWERS_FOLDER, f"{quiz_code}_answers.csv")
+#     submissions = []
+#     if not os.path.exists(filename):
+#         return submissions
+#     with open(filename, "r", encoding="utf-8") as f:
+#         reader = csv.DictReader(f)
+#         for row in reader:
+#             ts = datetime.fromisoformat(row["timestamp"])
+#             if last_minutes:
+#                 if ts < datetime.now() - timedelta(minutes=last_minutes):
+#                     continue
+#             # Convert answers from string to list of tuples
+#             answers = eval(row["answers"])
+#             submissions.append(
+#                 {
+#                     "timestamp": ts,
+#                     "token": row["token"],
+#                     "answers": answers,
+#                     "score": int(row["score"]),
+#                     "total": int(row["total"]),
+#                 }
+#             )
+#     return submissions
 
 
 @app.route("/student")
@@ -177,8 +192,8 @@ def quiz(code):
         for q in questions:
             qid = int(q["id"])
             #print(qid,q["id"] )
-            ans = request.form.get(f"q{qid-1}")
-            conf = request.form.get(f"c{qid-1}")
+            ans = request.form.get(f"q{qid}")
+            conf = request.form.get(f"c{qid}")
             answers.append((qid, ans, conf))
             if ans is not None and int(ans) == q["correct"]:
                 score += 1
@@ -202,7 +217,7 @@ def trainer_home():
     quizzes = load_quizzes()
     quiz_stats = []
     for q in quizzes:
-        submissions = load_submissions(q["code"])
+        submissions = load_submissions_supabase(q["code"])
         quiz_stats.append(
             {
                 "title": q["title"],
@@ -218,7 +233,7 @@ def trainer_home():
 def trainer_quiz(quiz_code):
 
     quiz_data = load_quiz(quiz_code)
-    submissions = load_submissions(quiz_code, last_minutes=LAST_N_MINUTES)
+    submissions = load_submissions_supabase(quiz_code, last_minutes=LAST_N_MINUTES)
 
     scores = [s["score"] for s in submissions]
     total_submissions = len(scores)
@@ -230,14 +245,16 @@ def trainer_quiz(quiz_code):
         counter = Counter()
         for s in submissions:
             for ans in s["answers"]:
-                if int(ans[0]) == q["id"] - 1:  # question id adjustment
-                    if int(ans[1]) != q["correct"]:
-                        counter[int(ans[1])] += 1
+                if int(ans[0]) == q["id"]:  # question id adjustment
+                    #if int(ans[1]) != q["correct"]:
+                    counter[int(ans[1])] += 1
         question_failures.append(
             {
                 "id": q["id"],
                 "text": q["text"],
+                "concept": q["concept"],
                 "options": q["options"],
+                "correct": q["correct"],
                 "failures": dict(counter),
             }
         )

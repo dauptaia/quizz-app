@@ -15,10 +15,14 @@
     <ul class="list-group">
         {% for qf in question_failures %}
         <li class="list-group-item">
-            <b>{{ qf.id }}. {{ qf.text }}</b><br>
+            <b>{{ qf.id }}. {{ qf.text }}</b><br>Concept :{{ qf.concept }}</b>
             {% for idx, opt in qf.options|enumerate %}
             {% set fails = qf.failures.get(idx, 0) %}
-            {{ opt }} — Failed: {{ fails }}<br>
+            {% if idx == qf.correct %}
+            {{ opt }} — {{ "✅" * fails }}<br>
+            {% else %}
+            {{ opt }} — {{ "❌" * fails }}<br>
+            {% endif %}
             {% endfor %}
         </li>
         {% endfor %}
