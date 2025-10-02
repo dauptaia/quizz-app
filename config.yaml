@@ -10,8 +10,3 @@ PORT: 5000
 # Optional: trainer settings
 SHOW_LAST_N_MINUTES: 30
 
-
-# Supabase config:
-supabase_url: https://yhoccnahvelacybhuvpn.supabase.co
-supabase_key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlob2NjbmFodmVsYWN5Ymh1dnBuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg2NTM2MzksImV4cCI6MjA3NDIyOTYzOX0.bj11mkA-_3Nnz_WnMgR-VB4a1vWkSCkKyqyPMrruPKk
-bucket: "quiz-submissions"

@@ -8,14 +8,7 @@ This little quizz App is a ligh MCQ form customized to my needs.
 
 As a result the submissions can be used to build the Brier score or participants.
 
-
-hope this project does not becomes too much time consuming.
-
-
-## Data storage
-
-Today the data storage is done through supabase. 
-Fork the project to tailor it to your needs.
+I hope this project does not becomes too much time consuming.
 
 ## To test locally
 
