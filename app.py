@@ -18,7 +18,11 @@ import yaml
 with open("config.yaml", "r", encoding="utf-8") as f:
     config = yaml.safe_load(f)
 
-with open("auth_users.yaml", "r") as f:
+
+with open("secret_env.yaml", "r", encoding="utf-8") as f:
+    hidden_config = yaml.safe_load(f)
+
+with open("secret_auth_users.yaml", "r") as f:
     auth_data = yaml.safe_load(f)
 
 
@@ -30,8 +34,8 @@ PORT = config.get("PORT", 5000)
 LAST_N_MINUTES = config.get("SHOW_LAST_N_MINUTES", 30)
 
 # Init Supabase client
-supabase: Client = create_client(config["supabase_url"], config["supabase_key"])
-bucket = config["bucket"]
+supabase: Client = create_client(hidden_config["SUPABASE_URL"], hidden_config["SUPABASE_ANON_KEY"])
+bucket = hidden_config["SUPABASE_BUCKET"]
 
 os.makedirs(ANSWERS_FOLDER, exist_ok=True)
 
