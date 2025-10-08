@@ -10,12 +10,14 @@
     <h1>{{ quiz.quiz.title }} - Last 30 min Stats</h1>
     <p>Total submissions: {{ total_submissions }}</p>
     <p>Average score: {{ avg_score | round(2) }}</p>
+    <p>Warning, this pages gives the results for the answers received in the last 30 minutes. In other words, 30 minutes
+        after the last quizz, no answers will be shown here.</p>
 
     <h2>Question Failures</h2>
     <ul class="list-group">
         {% for qf in question_failures %}
         <li class="list-group-item">
-            <b>{{ qf.id }}. {{ qf.text }}</b><br>Concept :{{ qf.concept }}</b>
+            <b>{{ qf.id }}. {{ qf.text }}</b><br>Concept :{{ qf.concept }}</b><br>
             {% for idx, opt in qf.options|enumerate %}
             {% set fails = qf.failures.get(idx, 0) %}
             {% if idx == qf.correct %}

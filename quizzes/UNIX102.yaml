@@ -1,0 +1,105 @@
+quiz:
+  title: "Unix Command Line Essentials — Alternative Set"
+  code: "UNIX102"
+  last_update: 2025-10-08
+
+questions:
+  - id: 0
+    text: "Which command displays the current working directory?"
+    concept: "Viewing current directory with pwd"
+    options:
+      - "whereami"
+      - "pwd"
+      - "locate"
+      - "path"
+    correct: 1
+
+  - id: 1
+    text: "Which command moves or renames a file in Unix?"
+    concept: "Moving and renaming with mv"
+    options:
+      - "rename"
+      - "mv"
+      - "move"
+      - "cp"
+    correct: 1
+
+  - id: 2
+    text: "What does the * (asterisk) character represent when used in the shell?"
+    concept: "Globbing with wildcard characters"
+    options:
+      - "It matches one single character in a filename"
+      - "It repeats the last command"
+      - "It matches any sequence of characters in filenames"
+      - "It substitutes variable values"
+    correct: 2
+
+  - id: 3
+    text: "How can you recall previous commands efficiently in most Unix shells?"
+    concept: "Command history and navigation"
+    options:
+      - "By pressing the Up Arrow key"
+      - "By using the command recall()"
+      - "By typing !history"
+      - "By retyping the command name manually"
+    correct: 0
+
+  - id: 4
+    text: "Which command provides a short description of another command?"
+    concept: "Documentation with whatis"
+    options:
+      - "help"
+      - "whatis"
+      - "info"
+      - "man -s"
+    correct: 1
+
+  - id: 5
+    text: "Which command displays the first 10 lines of a text file by default?"
+    concept: "Inspecting the start of a file with head"
+    options:
+      - "cat file.txt"
+      - "less file.txt"
+      - "tail file.txt"
+      - "head file.txt"
+    correct: 3
+
+  - id: 6
+    text: "Which command creates a new directory called 'projects'?"
+    concept: "Directory creation with mkdir"
+    options:
+      - "touch projects"
+      - "mk projects"
+      - "mkdir projects"
+      - "newdir projects"
+    correct: 2
+
+  - id: 7
+    text: "Which command open a Visual Studio code session with a file in it?"
+    concept: "File viewing with Vscode"
+    options:
+      - "code file.txt"
+      - "vscode file.txt"
+      - "open vscode file.txt"
+      - "vs > file.txt"
+    correct: 0
+
+  - id: 8
+    text: "Which command removes an empty directory?"
+    concept: "Directory deletion with rmdir"
+    options:
+      - "rm -d"
+      - "rmdir"
+      - "deletedir"
+      - "erase"
+    correct: 1
+
+  - id: 9
+    text: "Why is the command 'rm -rf *' considered dangerous?"
+    concept: "Risks of recursive deletion with rm -rf"
+    options:
+      - "It only deletes temporary files, which can break system updates"
+      - "It can delete all files and directories in the current directory without asking for confirmation"
+      - "It encrypts files before removing them, making recovery impossible"
+      - "It can remove files in all the hard drive, whereever it is typed"
+    correct: 1

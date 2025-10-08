@@ -2,14 +2,16 @@ from supabase import create_client
 
 import yaml
 
-with open("../config.yaml", "r", encoding="utf-8") as f:
-    config = yaml.safe_load(f)
+# with open("../config.yaml", "r", encoding="utf-8") as f:
+#     config = yaml.safe_load(f)
 
+with open("../secret_env.yaml", "r", encoding="utf-8") as f:
+    hidden_config = yaml.safe_load(f)
 
 # Load Supabase config from environment variables
-SUPABASE_URL = config["supabase_url"]
-SUPABASE_ANON_KEY = config["supabase_key"]
-BUCKET = config["bucket"]
+SUPABASE_URL = hidden_config["SUPABASE_URL"]
+SUPABASE_ANON_KEY = hidden_config["SUPABASE_ANON_KEY"]
+BUCKET = hidden_config["SUPABASE_BUCKET"]
 DUMP_REPO = "downloads"
 
 
@@ -36,3 +38,4 @@ def download_csv(filename, save_as=None):
 if __name__ == "__main__":
     # Example usage: download a quiz CSV
     download_csv("UNIX101_answers.csv", DUMP_REPO+"/UNIX101_answers.csv")
+    download_csv("NUMPY101_answers.csv", DUMP_REPO+"/NUMPY101_answers.csv")
