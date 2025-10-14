@@ -39,3 +39,4 @@ if __name__ == "__main__":
     # Example usage: download a quiz CSV
     download_csv("UNIX101_answers.csv", DUMP_REPO+"/UNIX101_answers.csv")
     download_csv("NUMPY101_answers.csv", DUMP_REPO+"/NUMPY101_answers.csv")
+    download_csv("UNIX102_answers.csv", DUMP_REPO+"/UNIX102_answers.csv")

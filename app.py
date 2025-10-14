@@ -196,10 +196,10 @@ def quiz(code):
         for q in questions:
             qid = int(q["id"])
             #print(qid,q["id"] )
-            ans = request.form.get(f"q{qid}")
-            conf = request.form.get(f"c{qid}")
-            answers.append((qid, ans, conf))
-            if ans is not None and int(ans) == q["correct"]:
+            ans = int(request.form.get(f"q{qid}"))
+            conf = int(request.form.get(f"c{qid}"))
+            answers.append((q["correct"], ans, conf))
+            if ans is not None and ans == q["correct"]:
                 score += 1
         print(answers)
             
