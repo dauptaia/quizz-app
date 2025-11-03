@@ -306,6 +306,7 @@ def analyze_calibration(csv_files: List[str], n_bins: int = 4, output_dir: str =
     
     # Generate references
     print("\nGenerating reference models...")
+    n_avg = 2000
     references = {
         'god': generate_reference_answers(n_avg, n_bins, 'god'),
         'monkey1': generate_reference_answers(n_avg, n_bins, 'monkey'),
@@ -321,6 +322,6 @@ def analyze_calibration(csv_files: List[str], n_bins: int = 4, output_dir: str =
 
 if __name__ == "__main__":
     # Example usage
-    csv_files = ['downloads/UNIX101_answers.csv','downloads/UNIX102_answers.csv']  # Replace with your CSV file paths
+    csv_files = ['downloads/UNIX101_answers_filtered.csv','downloads/UNIX102_answers_filtered.csv']  # Replace with your CSV file paths
     analyze_calibration(csv_files, n_bins=4, output_dir='calibration_plots')
     
