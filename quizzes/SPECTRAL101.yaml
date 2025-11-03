@@ -1,0 +1,105 @@
+quiz:
+  title: "Spectral Analysis for LES Signals (Foundations)"
+  code: "SPECTRAL101"
+  last_update: 2025-11-03
+
+questions:
+  - id: 0
+    text: "What does the Nyquist frequency represent in discrete spectral analysis?"
+    concept: "From continuous to discrete signals"
+    options:
+      - "The maximum frequency present in any continuous signal"
+      - "The frequency beyond which aliasing begins in sampled data"
+      - "The minimum measurable frequency in a discrete signal"
+      - "The frequency at which FFT values repeat cyclically"
+    correct: 1
+
+  - id: 1
+    text: "What is aliasing in the context of spectral analysis?"
+    concept: "Aliasing and spectral leakage"
+    options:
+      - "A distortion due to nonlinearity in the physical sensor"
+      - "A loss of low-frequency information during normalization"
+      - "The misrepresentation of high-frequency components as lower frequencies due to insufficient sampling"
+      - "An error caused by incorrect windowing of the data"
+    correct: 2
+
+  - id: 2
+    text: "In a Discrete Fourier Transform (DFT), what does each complex coefficient represent?"
+    concept: "Fourier Transform foundations"
+    options:
+      - "A single point in the original time series"
+      - "The amplitude and phase of a sinusoidal component at a specific frequency"
+      - "Only the amplitude of a signal component"
+      - "The instantaneous frequency of the signal"
+    correct: 1
+
+  - id: 3
+    text: "How does the Power Spectral Density (PSD) differ from the amplitude spectrum?"
+    concept: "PSD vs. amplitude spectrum"
+    options:
+      - "The PSD is always plotted in decibels, while the amplitude spectrum is not"
+      - "The PSD represents energy distribution per unit frequency, while the amplitude spectrum shows raw magnitude"
+      - "They are identical but use different FFT normalization"
+      - "The amplitude spectrum includes only the real part of the signal"
+    correct: 1
+
+  - id: 4
+    text: "Why is spectral averaging applied when estimating spectra from LES data?"
+    concept: "Spectral averaging and convergence"
+    options:
+      - "To reduce random fluctuations and improve statistical reliability"
+      - "To increase frequency resolution"
+      - "To remove phase information from the signal"
+      - "To convert the amplitude spectrum into a PSD"
+    correct: 0
+
+  - id: 5
+    text: "What is the main trade-off when applying a window function (like Hanning or Hamming) before the FFT?"
+    concept: "Windowing and spectral leakage control"
+    options:
+      - "Reduced leakage but increased noise sensitivity"
+      - "Improved resolution but increased aliasing"
+      - "Reduced leakage but poorer frequency resolution"
+      - "Faster FFT computation but distorted magnitudes"
+    correct: 2
+
+  - id: 6
+    text: "Why is normalization important in FFT-based spectral analysis?"
+    concept: "Normalization and units"
+    options:
+      - "To make the FFT run faster on large datasets"
+      - "To ensure the total variance in the signal matches the integral of the spectrum"
+      - "To remove the DC component from the spectrum"
+      - "To correct for spectral leakage due to windowing"
+    correct: 1
+
+  - id: 7
+    text: "What determines the frequency resolution of a discrete spectrum?"
+    concept: "Spectral resolution and binning"
+    options:
+      - "The choice of window function"
+      - "The sampling rate divided by the FFT length"
+      - "The numerical precision of the FFT algorithm"
+      - "The amplitude of the input signal"
+    correct: 1
+
+  - id: 8
+    text: "In acoustic spectral analysis, what does the Sound Pressure Level (SPL) represent?"
+    concept: "Spectral representation in decibels and SPL"
+    options:
+      - "The logarithm of the instantaneous pressure at a point"
+      - "The total energy in the sound field"
+      - "A logarithmic measure of acoustic pressure relative to a reference pressure"
+      - "The difference between maximum and minimum sound amplitudes"
+    correct: 2
+
+  - id: 9
+    text: "What does the coherence function between two signals measure?"
+    concept: "Multivariate and cross-spectral analysis"
+    options:
+      - "The difference between their mean values"
+      - "The fraction of one signal’s variance that can be linearly explained by the other at each frequency"
+      - "The phase shift between two signals, regardless of frequency"
+      - "The correlation between their amplitudes in the time domain"
+    correct: 1

@@ -1,0 +1,105 @@
+quiz:
+  title: "Spectral Analysis for LES Signals (Implementation & Practice)"
+  code: "SPECTRAL201"
+  last_update: 2025-11-03
+
+questions:
+  - id: 0
+    text: "When computing a FFT from an LES time series, why is detrending often applied first?"
+    concept: "Preprocessing and detrending"
+    options:
+      - "To remove random noise from high frequencies"
+      - "To eliminate slow variations or DC offsets that can dominate low frequencies"
+      - "To enhance the symmetry of the Fourier coefficients"
+      - "To normalize the total signal energy"
+    correct: 1
+
+  - id: 1
+    text: "What is the computational advantage of using the Fast Fourier Transform (FFT) algorithm over the Discrete Fourier Transform (DFT)?"
+    concept: "FFT efficiency and computation"
+    options:
+      - "The FFT provides higher spectral resolution"
+      - "The FFT is less sensitive to noise in the signal"
+      - "The FFT reduces computation time from O(N²) to O(N log N)"
+      - "The FFT uses less memory because it avoids complex numbers"
+    correct: 2
+
+  - id: 2
+    text: "How does zero-padding affect the computed spectrum of a finite signal?"
+    concept: "Zero-padding and interpolation"
+    options:
+      - "It increases the true frequency content of the signal"
+      - "It smooths the signal in the time domain"
+      - "It increases apparent frequency resolution without adding new information"
+      - "It removes spectral leakage entirely"
+    correct: 2
+
+  - id: 3
+    text: "What is a key consideration when using Welch’s method for PSD estimation?"
+    concept: "Welch’s method and segment averaging"
+    options:
+      - "Using shorter segments increases variance but improves resolution"
+      - "Using longer segments reduces variance but worsens resolution"
+      - "Using overlapping segments improves statistical convergence but increases computational cost"
+      - "Using overlapping segments reduces bias but doubles aliasing"
+    correct: 2
+
+  - id: 4
+    text: "What is the main consequence of applying an inappropriate sampling rate to an LES signal?"
+    concept: "Sampling and aliasing"
+    options:
+      - "Artificial high-frequency oscillations appear in the physical domain"
+      - "Low-frequency components are amplified"
+      - "High-frequency content folds back into lower frequencies (aliasing)"
+      - "The FFT magnitude increases artificially at all frequencies"
+    correct: 2
+
+  - id: 5
+    text: "How should non-periodic LES data be handled to minimize edge effects in spectral analysis?"
+    concept: "Boundary effects and windowing"
+    options:
+      - "By mirroring the data before applying FFT"
+      - "By applying a window function to taper the signal edges"
+      - "By normalizing each segment independently"
+      - "By removing the first and last 10% of data points"
+    correct: 1
+
+  - id: 6
+    text: "In 3D LES data, what is typically required before computing a spatial energy spectrum?"
+    concept: "Spatial spectra computation"
+    options:
+      - "Interpolation onto a uniform grid and removal of mean flow components"
+      - "Temporal averaging of all velocity fields"
+      - "Converting the data into cylindrical coordinates"
+      - "Applying an inverse FFT to each velocity component"
+    correct: 0
+
+  - id: 7
+    text: "Why is ensemble averaging across multiple LES realizations useful in spectral estimation?"
+    concept: "Statistical robustness and averaging"
+    options:
+      - "It improves time resolution of the FFT"
+      - "It provides a smoother spectrum with reduced random variability"
+      - "It reduces numerical round-off errors in the FFT computation"
+      - "It enhances low-frequency components by cumulative summation"
+    correct: 1
+
+  - id: 8
+    text: "What is a potential pitfall when computing cross-spectra from two signals with different sampling rates?"
+    concept: "Cross-spectral computation"
+    options:
+      - "The coherence becomes artificially high at all frequencies"
+      - "The FFT will return only imaginary values"
+      - "The signals must be resampled to a common rate to ensure frequency alignment"
+      - "The cross-spectrum cannot be normalized"
+    correct: 2
+
+  - id: 9
+    text: "When interpreting a discrete spectrum, what does each frequency bin actually represent?"
+    concept: "Frequency bins and interpretation"
+    options:
+      - "A single instantaneous frequency component"
+      - "The average spectral power over a finite bandwidth centered on that frequency"
+      - "The instantaneous amplitude of the corresponding sine wave"
+      - "The time-domain variance of that component only"
+    correct: 1
