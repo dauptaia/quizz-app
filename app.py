@@ -238,7 +238,7 @@ def trainer_quiz(quiz_code):
 
     quiz_data = load_quiz(quiz_code)
     submissions = load_submissions_supabase(quiz_code, last_minutes=LAST_N_MINUTES)
-
+    
     scores = [s["score"] for s in submissions]
     total_submissions = len(scores)
     avg_score = sum(scores) / total_submissions if total_submissions else 0
@@ -248,9 +248,8 @@ def trainer_quiz(quiz_code):
     for q in quiz_data["questions"]:
         counter = Counter()
         for s in submissions:
-            for ans in s["answers"]:
-                if int(ans[0]) == q["id"]:  # question id adjustment
-                    #if int(ans[1]) != q["correct"]:
+            for i,ans in enumerate(s["answers"]):
+                if i == q["id"]:  # question id adjustment
                     counter[int(ans[1])] += 1
         question_failures.append(
             {
