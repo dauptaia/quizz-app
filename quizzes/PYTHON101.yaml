@@ -20,7 +20,7 @@ questions:
     options:
       - "print('Hello')"    # ✅ Python
       - "cout << 'Hello';"  # C++
-      - "WRITE(*,*) 'Hello'"# Fortran
+      - "WRITE(*,*) 'Hello'" # Fortran
       - "console.log('Hello')" # JavaScript
     correct: 0
 
@@ -28,7 +28,7 @@ questions:
     concept: "Control Flow"
     text: "Which keyword is used in Python to check multiple conditions after an if statement?"
     options:
-      - "elsif"     # Fortran / Perl style
+      - "elsif"     # Ruby / Perl style
       - "else if"   # C++ style
       - "elif"      # ✅ Python
       - "elseif"    # PHP/others
@@ -51,7 +51,7 @@ questions:
       - "def greet():"      # ✅ Python
       - "function greet()"  # JavaScript
       - "void greet()"      # C++
-      - "subroutine greet()"# Fortran
+      - "subroutine greet()" # Fortran
     correct: 0
 
   - id: 5
