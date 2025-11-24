@@ -12,7 +12,7 @@ from supabase import create_client, Client
 
 app = Flask(__name__)
 
-
+DEBUG = False
 import yaml
 
 with open("config.yaml", "r", encoding="utf-8") as f:
@@ -85,9 +85,11 @@ def save_submission_supabase(quiz_code, token, answers, score, total):
             file_options={"content-type": "text/csv", "upsert": "true"},
         )
     except Exception as e:
-        print("Upload failed:", e)
+        if DEBUG:
+            print("Save_submission_supabase, Upload failed:", e)
 
 def load_submissions_supabase(quiz_code, last_minutes=None):
+    """ Used to get all the submisions of the Base in The trainer home"""
     filename = f"{quiz_code}_answers.csv"
     submissions = []
 
@@ -108,7 +110,11 @@ def load_submissions_supabase(quiz_code, last_minutes=None):
         # Convert answers back from string
         try:
             answers = eval(row["answers"])
+            if DEBUG:
+                print("load_submission_supabase , loadAnswers = ",answers)
         except Exception:
+            if DEBUG:
+                print("load_submission_supabase, Answers not found")
             answers = []
         submissions.append(
             {
@@ -119,6 +125,8 @@ def load_submissions_supabase(quiz_code, last_minutes=None):
                 "total": int(row["total"]),
             }
         )
+    if DEBUG:
+        print("load_submission_supabase, Submissions",submissions)
     return submissions
 
 # def save_submission(quiz_code, token, answers, score, total):
@@ -201,7 +209,8 @@ def quiz(code):
             answers.append((q["correct"], ans, conf))
             if ans is not None and ans == q["correct"]:
                 score += 1
-        print(answers)
+        if DEBUG:
+            print("Quiz", answers)
             
         save_submission_supabase(code, token, answers, score, len(questions))
         return render_template(
