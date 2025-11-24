@@ -13,7 +13,7 @@
     <h2>Review</h2>
     <ul class="list-group">
         {% for q, ans in qa_pairs %}
-        {% set student_ans = ans[1]|int if ans[1] else "None" %}
+        {% set student_ans = ans[1]|int %}
         {% set correct_ans = q.correct %}
         <li class="list-group-item">
             <b>{{ q.id }}. {{ q.text }}</b>
@@ -24,7 +24,7 @@
             ❌
             {% endif %}
             {% else %}
-            ❌
+            💡
             {% endif %}
             <br>
             Your answer: {{ q.options[student_ans] }}<br>
