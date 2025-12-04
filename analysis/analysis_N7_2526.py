@@ -322,6 +322,9 @@ def analyze_calibration(csv_files: List[str], n_bins: int = 4, output_dir: str =
 
 if __name__ == "__main__":
     # Example usage
-    csv_files = ['downloads/UNIX101_answers_filtered.csv','downloads/UNIX102_answers_filtered.csv']  # Replace with your CSV file paths
+    csv_files = [
+        'downloads/UNIX101_answers_filtered.csv',
+        'downloads/UNIX102_answers_filtered.csv',
+        'downloads/PYTHON101_answers.csv']  # Replace with your CSV file paths
     analyze_calibration(csv_files, n_bins=4, output_dir='calibration_plots')
     
