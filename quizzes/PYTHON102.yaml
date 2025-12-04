@@ -1,0 +1,106 @@
+quiz:
+  title: "The Basics of Python Programming, part 2"
+  code: "PYTHON102"
+  last_update: 2025-12-04
+
+questions:
+  - id: 0
+    concept: "Principle of an iterative program"
+    text: "What is central in the iterative loop of a simulation ?"
+    options:
+      - "The importation of external modules"
+      - "The initialization of the model state"
+      - "The update of the model state"       
+      - "The analytical equation"
+    correct: 2
+
+  - id: 1
+    concept: "Data visualization"
+    text: "Which instruction displays the plot window in matplotlib?"
+    options:
+      - "plt.show()"                    # ✅ Python
+      - "plt.display()"                 # plausible fake
+      - "plt.update()"                  # common guess
+      - "plt.plot()"                    # pseudo-code
+    correct: 0
+
+  - id: 2
+    concept: "Importing modules"
+    text: "Which statement correctly imports the cosine function from the math module in Python?"
+    options:
+      - "import math.cos"              # common mistake
+      - "using math import cos"        # Java-style
+      - "from math import cos"         # ✅ Python
+      - "include <math.h>"             # C/C++
+    correct: 2
+
+  - id: 3
+    concept: "Use of constants"
+    text: "Which convention is used in Python to indicate that a variable should be treated as a constant?"
+    options:
+      - "const GRAVITY = 9.81"          # C-style
+      - "let GRAVITY = 9.81"            # JavaScript
+      - "GRAVITY 9.81"                  # Java
+      - "GRAVITY = 9.81"                # ✅ Python convention
+    correct: 3
+
+  - id: 4
+    concept: "Defining functions"
+    text: "Which syntax correctly defines a function in Python?"
+    options:
+      - "function force(v):"            # JavaScript-style
+      - "def force(v):"                 # ✅ Python
+      - "func force(v) {}"              # Go-style
+      - "def force(v)"                  # Python without comma
+    correct: 1
+
+  - id: 5
+    concept: "Mathematical expressions"
+    text: "How do you write 'v squared' in Python?"
+    options:
+      - "v^2"                           # common beginner error
+      - "pow(v, 2)"                     # valid but not shown in course
+      - "v**2"                          # ✅ Python
+      - "v²"                            # Unicode typo
+    correct: 2
+
+  - id: 6
+    concept: "Conditional statements"
+    text: "Which of the following correctly tests if y is below zero in Python?"
+    options:
+      - "if y < 0.6 then"                 # BASIC / pseudo-code
+      - "if y < 0.6:"                     # ✅ Python
+      - "if (y < 0)"                      # C / Java style
+      - "if y < 0,6"                      # float/tuple confusion
+    correct: 1
+
+  - id: 7
+    concept: "Looping and simulation time"
+    text: "Which structure is used in Python to repeat instructions while a condition remains true?"
+    options:
+      - "for n while n < 100"                   # Pascal
+      - "if n < 100 do"                         # C-style
+      - "do while n < 100"                      # Java
+      - "while n < 100"                         # ✅ Python
+    correct: 3
+
+  - id: 8
+    concept: "Numerical integration (Euler method)"
+    text: "Which line updates a velocity using Euler's method?"
+    options:
+      - "v = v * a * dt"                # wrong physics
+      - "v = a / dt"                    # wrong formula
+      - "v = v + a * dt"                # ✅ Euler method
+      - "v -= dt / a"                   # incorrect logic
+    correct: 2
+
+  - id: 9
+    concept: "Lists and data storage"
+    text: "Which instruction correctly stores a new position into a list?"
+    options:
+      - "list_x +=  x"                  # confusion with incerment 
+      - "append(list_x, x)"             # functional-style guess
+      - "list_x.append(x)"              # ✅ Python
+      - "list_x := x"                   # JavaScript
+    correct: 2
+
