@@ -42,7 +42,8 @@ os.makedirs(ANSWERS_FOLDER, exist_ok=True)
 
 def load_quizzes():
     quizzes = []
-    for file in os.listdir(QUIZ_FOLDER):
+    sorted_files = sorted(os.listdir(QUIZ_FOLDER))
+    for file in sorted_files:
         if file.endswith(".yaml"):
             path = os.path.join(QUIZ_FOLDER, file)
             with open(path, "r", encoding="utf-8") as f:
