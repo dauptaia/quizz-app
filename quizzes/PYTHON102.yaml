@@ -66,7 +66,7 @@ questions:
 
   - id: 6
     concept: "Conditional statements"
-    text: "Which of the following correctly tests if y is below zero in Python?"
+    text: "Which of the following correctly tests if y is below 0.6 in Python?"
     options:
       - "if y < 0.6 then"                 # BASIC / pseudo-code
       - "if y < 0.6:"                     # ✅ Python

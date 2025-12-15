@@ -1,0 +1,105 @@
+quiz:
+  title: "NumPy 102:  Indexing & Slicing Mastery"
+  code: "NUMPY-102"
+  last_update: 2025-12-15
+
+questions:
+  - id: 0
+    concept: "1D Slicing Basics"
+    text: "Given a NumPy array a, how do you select all elements except the first one?"
+    options:
+      - "a[:1]"
+      - "a[1:]"
+      - "a[0:]"
+      - "a[:-2]"
+    correct: 1
+
+  - id: 1
+    concept: "1D Slicing Basics"
+    text: "How do you select all elements of a NumPy array a except the last one?"
+    options:
+      - "a[-1]"
+      - "a[:-1]"
+      - "a[1:]"
+      - "a[:]"
+    correct: 1
+
+  - id: 2
+    concept: "1D Indexing Errors"
+    text: "What does the expression a[-1] return for a 1D NumPy array a?"
+    options:
+      - "The first element"
+      - "All elements except the last"
+      - "The last element"
+      - "An IndexError"
+    correct: 2
+
+  - id: 3
+    concept: "1D Array Assignment"
+    text: "You create an array a = np.zeros(10). Which line correctly sets all elements except the last one to 1?"
+    options:
+      - "a = 1"
+      - "a[1:] = 1"
+      - "a[-1:] = 1"
+      - "a[:-1] = 1"
+    correct: 3
+
+  - id: 4
+    concept: "1D Slicing Semantics"
+    text: "What is the length of the slice a[2:5] for a 1D array a?"
+    options:
+      - "2"
+      - "3"
+      - "5"
+      - "It depends on the array values"
+    correct: 1
+
+  - id: 5
+    concept: "1D Step Slicing"
+    text: "Which slice selects every second element of a 1D NumPy array a?"
+    options:
+      - "a[::2]"
+      - "a[2::]"
+      - "a[:2:]"
+      - "a[1:2]"
+    correct: 0
+
+  - id: 6
+    concept: "1D View vs Copy"
+    text: "What happens when you modify a slice like a[1:4] = 10?"
+    options:
+      - "Only a copy is modified"
+      - "The original array a is modified"
+      - "An error is raised"
+      - "Only the first element changes"
+    correct: 1
+
+  - id: 7
+    concept: "2D Indexing"
+    text: "Given a 2D array m, how do you access the element in the 2nd row and 3rd column?"
+    options:
+      - "m[2][3]"
+      - "m(1,2)"
+      - "m[1,2]"
+      - "m[2,3]"
+    correct: 2
+
+  - id: 8
+    concept: "2D Slicing Rows"
+    text: "How do you select all rows except the first one in a 2D NumPy array m?"
+    options:
+      - "m[:, 1:]"
+      - "m[1:, :]"
+      - "m[:-1, :]"
+      - "m[1]"
+    correct: 1
+
+  - id: 9
+    concept: "2D Slicing Columns"
+    text: "Which expression selects all columns except the last one in a 2D NumPy array m?"
+    options:
+      - "m[:, -1]"
+      - "m[-1, :]"
+      - "m[:, :-1]"
+      - "m[:-1, :-1]"
+    correct: 2
